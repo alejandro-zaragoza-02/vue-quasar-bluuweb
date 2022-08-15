@@ -2,7 +2,7 @@
 
     <q-page class="row justify-center">
         <div class="col-12 col-sm-6 col-md-5">
-            <h3 class="row justify-center">Login</h3>
+            <h3 class="row justify-center">Registro</h3>
             <q-form @submit.prevent="handleSubmit">
                 <q-input
                     type="email"
@@ -19,11 +19,20 @@
                     label="Contraseña"
                     :rules="[
                         (val) => 
-                            (val.length < 1 || val.length > 5) || 'La contraseña debe tener mínimo 6 carácteres.',  
+                            (val.length < 1 || val.length > 5) || 'La contraseña debe tener mínimo 6 carácteres.'  
+                    ]"
+                />
+                <q-input
+                    type="password"
+                    v-model="repassword"
+                    label="Repetir contraseña"
+                    :rules="[
+                        (val) => 
+                            (val && val === password) || 'Las contraseñas deben coincidir'
                     ]"
                 />
                 <div padding>
-                    <q-btn type="submit">Login</q-btn>
+                    <q-btn type="submit">Registrar</q-btn>
                 </div>
             </q-form>
         </div>
@@ -43,16 +52,17 @@ const userStore = useUserStore();
 const router = useRouter();
 const $q = useQuasar();
 
-const email = ref('test@test.com');
-const password = ref('123456');
+const email = ref('');
+const password = ref('');
+const repassword = ref('');
 
 const handleSubmit = async () => {
 
     try {
-        await userStore.login(email.value, password.value);
+        await userStore.register(email.value, password.value, repassword.value);
         router.push('/');
     } catch (error) {
-        console.error(error.error);
+        console.error(error);
         alertError(error.error);
     }
 }
