@@ -1,41 +1,5 @@
-# Quasar App (front-end)
+# Acortador de links
 
-A Quasar Project
+Este proyecto se hizo basado en el siguiente curso: https://youtube.com/playlist?list=PLPl81lqbj-4J8QPrK7hztNbZ3WjgX5rv-&si=4NvVAvCS0VnGVBtx
 
-## Install the dependencies
-```bash
-yarn
-# or
-npm install
-```
-
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
-
-
-### Lint the files
-```bash
-yarn lint
-# or
-npm run lint
-```
-
-
-### Format the files
-```bash
-yarn format
-# or
-npm run format
-```
-
-
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+Consiste en una aplicación web de acortador de links, dónde añades una página y te otorga un link más corto que redirige a dicha página.
